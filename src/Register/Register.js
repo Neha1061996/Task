@@ -1,5 +1,4 @@
 import React from 'react';
-import Login from '../Login/Login';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -27,12 +26,12 @@ const useStyles = makeStyles(theme => ({
 export default function FilledTextFields() {
   const classes = useStyles();
   const [values, setValues] = React.useState({
-    name: 'Neha ',
-    name1: 'nea@',
+    name: '',
+    name1: '',
     number:1234567890,
-    lastname:'Kumari',
+    lastname:'',
     date: '23-06-2015',
-    email:' ',
+    email:'',
    
    
 
@@ -79,7 +78,7 @@ fire.auth().createUserWithEmailAndPassword(email, 'heyJD1012345#').then((u)=>{
 
   return (
       <div>
-          <Login/>
+          <div className='reg'><h3>Register</h3></div>
           <div className='register'>
     <form className={classes.container} noValidate autoComplete="off">
       <TextField
@@ -114,6 +113,8 @@ fire.auth().createUserWithEmailAndPassword(email, 'heyJD1012345#').then((u)=>{
        name="phone"
        value={values.number}
        onChange={handleChangenumber('number')}
+       min="1000000000"
+       max="9999999999"
       pattern="[0-9]{10}"
       margin="normal"
         variant="filled"
